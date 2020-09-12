@@ -18,9 +18,11 @@ export function login (email, password, onError) {
   });
 }
 
-export function register (email, password) {
+export function register (email, password, onError) {
   const auth = firebase.auth();
-  auth.createUserWithEmailAndPassword(email, password);
+  auth.createUserWithEmailAndPassword(email, password).catch(e => {
+    onError(e.code)
+  });
 }
 
 export function logout() {

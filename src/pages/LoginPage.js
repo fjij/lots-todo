@@ -20,20 +20,37 @@ export function LoginPage (props) {
   const user = useUser();
 
   function goLogin() {
-    function codeToMsg(code) {
-      switch(code) {
-        case 'auth/invalid-email':
-          return "Invalid email address."
-          break;
-        default:
-          return "The email or password was incorrect.";
-          break;
-      }
-    }
     function onError(code) {
       setErrorMsg(codeToMsg(code))
     }
     login(email, password, onError)
+  }
+
+  function codeToMsg(code) {
+    switch(code) {
+      case 'auth/invalid-email':
+        return "Invalid email address."
+        break;
+      case 'auth/email-already-in-use':
+        return "Email already in use."
+        break;
+      case 'auth/weak-password':
+        return "Try a stronger password."
+        break;
+      case 'auth/too-many-requests':
+        return "Too many attempts. Try again later."
+        break;
+      default:
+        return "The email or password was incorrect.";
+        break;
+    }
+  }
+
+  function goRegister() {
+    function onError(code) {
+      setErrorMsg(codeToMsg(code))
+    }
+    register(email, password, onError)
   }
 
   if (user) return <Redirect to="/"/>
@@ -42,12 +59,15 @@ export function LoginPage (props) {
     <div>
       <div className="login-container">
       <Logo />
-        <form className="login-form" onSubmit={() => goLogin()}>
+        <form className="login-form" onSubmit={e => {
+          e.preventDefault();
+          goLogin();
+        }}>
           <div className="login-input-container">{emailInput}</div>
           <div className="login-input-container">{passwordInput}</div>
           <div className="login-footer">
             <input type="submit" className="btn" value="Login" />
-            <button className="btn" onClick={() => register(email, password)}> Register </button>
+            <button className="btn" onClick={() => goRegister()}> Register </button>
           </div>
         </form>
         <p className="login-error">
