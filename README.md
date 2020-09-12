@@ -1,68 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# lots-todo
+*Task management for the busy.*
 
-## Available Scripts
+Let's face it. Todo lists were never meant to deal with **this much work**. They get so long that it feels like you'll never complete them so you separate them up into multiple todo lists where things get so complicated that you can never find what you are looking for.
 
-In the project directory, you can run:
+**Todo lists can't handle *your* workload.**
 
-### `npm start`
+Or can they? **lots todo** is a todo list unlike any other. It features all the complex features: multiple todo lists, due dates, task priority ... as well as some features that make the whole experience just a little bit **simpler**.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Assign tasks for *now*
+Sometimes it's hard to focus with so much to do - it's information overload. In order to alleviate this pressure, **lots todo** lets you assign tasks for **now**. Choose the few items that you want to complete **now** and stop worrying about the stuff that needs to be done later. It'll get done, but right now you need to focus.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Smart Assign
+It feels like you should be doing something. But what? **lots todo** has you covered. Click the button and get assigned the most relevant tasks from across all your todo lists. **Smart Assign** considers everything from due date to task duration - you'll never let anything slip.
 
-### `npm test`
+## Multiplayer
+Got a project you want to work on with someone else? Fret not. Share a todo list with them. See when they assign and complete tasks in realtime so your project can never go off the rails.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Development progress
+**lots-todo** is a work in progress. It's not done yet. But it's getting there. Feel free to check in on the open beta at [lots-todo.com](https://lots-todo.com).
