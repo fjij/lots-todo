@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { BasePlate, Table, Plate, ItemDetails } from  '../components';
+import { BasePlate, Table, Plate, ItemDetails, Nav } from  '../components';
 import { useParams } from 'react-router-dom';
-import { logout, AuthCheck } from '../auth';
+import { AuthCheck } from '../auth';
 
 import '../styles/general.sass'
+import '../styles/homepage.sass'
 
 
 export function HomePage () {
@@ -16,8 +17,7 @@ export function HomePage () {
   }
   return (
     <div className="page">
-      <h1>plates</h1>
-      <button onClick={() => logout()}> Log Out </button>
+      <Nav />
       <div className="flex-container">
         <div className="flex">
           <BasePlate />

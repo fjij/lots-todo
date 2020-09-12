@@ -5,6 +5,7 @@
 body
   background: url("../assets/background.jpg")
   background-size: cover
+  font: 20px $font-stack
 
 img
   max-width: 100%
@@ -23,6 +24,21 @@ textarea
   resize: none
   background-color: $invisible-color
   border: none
+
+.btn
+  background: $invisible-color
+  border: none
+  margin-left: 10px
+  margin-right: 10px
+  padding: 10px
+  border-radius: 5px
+  font: 16px $font-stack
+  cursor: pointer
+  
+.btn-loud
+  @extend .btn
+  background: $accent-color
+  color: $back-color
 
 .flex-container
   display: flex

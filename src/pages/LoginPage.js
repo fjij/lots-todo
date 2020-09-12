@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInput } from '../components/input';
+import { Logo } from '../components';
 import { Redirect } from 'react-router-dom';
 import { useUser, login, register } from '../auth';
 import '../styles/login.sass';
@@ -28,12 +29,14 @@ export function LoginPage (props) {
   if (user) return <Redirect to="/"/>
 
   return (
-    <div className="login-container">
-      <h1>Login</h1>
-      {emailInput} <br />
-      {passwordInput} <br />
-      <button onClick={() => login(email, password)}> Login </button>
-      <button onClick={() => register(email, password)}> Register </button>
+    <div>
+      <div className="login-container">
+      <Logo />
+        {emailInput} <br />
+        {passwordInput} <br />
+        <button className="btn" onClick={() => login(email, password)}> Login </button>
+        <button className="btn" onClick={() => register(email, password)}> Register </button>
+      </div>
     </div>
   );
 }

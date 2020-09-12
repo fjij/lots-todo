@@ -10,14 +10,14 @@ function ConfirmDelete({onDelete}) {
     return (
       <div>
         Are you sure?
-        <button onClick={onDelete}>Delete</button>
-        <button onClick={() => setShow(false)}>Cancel</button>
+        <button className="btn" onClick={onDelete}>Delete</button>
+        <button className="btn" onClick={() => setShow(false)}>Cancel</button>
       </div>
     );
   } else {
     return (
       <div>
-        <button onClick={() => setShow(true)}>Delete</button>
+        <button className="btn" onClick={() => setShow(true)}>Delete</button>
       </div>
     );
   }

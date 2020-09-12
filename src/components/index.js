@@ -6,6 +6,8 @@ import { Item } from './Item';
 import { BasePlateItem } from './BasePlateItem';
 import { ItemDetails } from './ItemDetails';
 import { PlateRef } from './PlateRef';
+import { Logo } from './Logo';
+import { Nav } from './Nav';
 
 export {
   BasePlate,
@@ -16,4 +18,6 @@ export {
   BasePlateItem,
   ItemDetails,
   PlateRef,
+  Logo,
+  Nav,
 };

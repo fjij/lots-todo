@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { XCircleFillIcon } from '@primer/octicons-react';
 import { handleMoveRequestList, makeSpace } from '../components/Grabbable'
 
+import NoneImg from '../assets/undraw_ideas_flow.svg'
 import '../styles/plate.sass'
 
 export function Plate ({ plateId }) {
@@ -59,6 +60,47 @@ export function Plate ({ plateId }) {
     }
   }
 
+  function inner() {
+    if (items.length === 0)
+      return (
+        <div className="plate-list-text">
+          There's nothing here yet.
+          <br />
+          <br />
+          Create some tasks below.
+          <br />
+          <br />
+          <img src={NoneImg} alt="All done!" className="plate-list-image"/>
+        </div>
+      )
+
+    return (<>{
+        items.map( (item, pos) => (
+        <Item
+          plateId={plateId}
+          listKey={item.key}
+          key={item.key}
+          item={item.val}
+          pos={pos}
+          grabbable
+          onMoveRequest={
+            handleMoveRequestList(items, indexGetter, indexSetter, pos)
+          }
+          onNew={
+            handleNew(item, pos)
+          }
+          shouldFocus={item.val.dateCreated>dateLoaded}
+          itemCount={items.length}/> ))
+      }
+      {
+        doneItems.map( (item, pos) => ( <Item
+          plateId={plateId}
+          listKey={item.key}
+          key={item.key}
+          item={item.val} /> ))
+      }</>)
+  }
+
   if (plate && items) {
     return (
       <div className="plate-container-right">
@@ -72,33 +114,12 @@ export function Plate ({ plateId }) {
             </Link>
           </div>
           <div className="plate-list">
-          <div className="plate-list-inner">
-            {
-              items.map( (item, pos) => (
-              <Item
-                plateId={plateId}
-                listKey={item.key}
-                key={item.key}
-                item={item.val}
-                pos={pos}
-                grabbable
-                onMoveRequest={
-                  handleMoveRequestList(items, indexGetter, indexSetter, pos)
-                }
-                onNew={
-                  handleNew(item, pos)
-                }
-                shouldFocus={item.val.dateCreated>dateLoaded}
-                itemCount={items.length}/> ))
-            }
-            {
-              doneItems.map( (item, pos) => ( <Item
-                plateId={plateId}
-                listKey={item.key}
-                key={item.key}
-                item={item.val} /> ))
-            }
-            <button className="item-button-new"
+            <div className="plate-list-inner">
+              {inner()}
+            </div>
+          </div>
+          <div className="plate-footer">
+            <button className="btn-loud"
               onClick={() => {
                 if (!items) return;
                 if (items.length === 0) {
@@ -110,7 +131,6 @@ export function Plate ({ plateId }) {
               }}>
                 New Item
             </button>
-          </div>
           </div>
         </div>
       </div>

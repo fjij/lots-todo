@@ -28,10 +28,10 @@ export function BasePlate() {
             You've got nothing assigned. Woo!
             <br />
             <br />
-            <img src={DoneImg} alt="All done!" className="plate-list-image"/>
-            <br />
-            <br />
             Assign some tasks on from the lists on the right.
+            <br />
+            <br />
+            <img src={DoneImg} alt="All done!" className="plate-list-image"/>
           </div>
         )
       return itemLinks.map(
