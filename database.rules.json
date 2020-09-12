@@ -1,0 +1,30 @@
+{
+  "rules": {
+    // ".read": "now < 1601697600000",  // 2020-10-3
+    // ".write": "now < 1601697600000",  // 2020-10-3
+    "baseplates": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "tables": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "metadata": {
+      "$plateId": {
+        ".read": "root.child('metadata/'+$plateId+'/owner').val() === auth.uid",
+        ".write": "(root.child('metadata/'+$plateId+'/owner').val() === auth.uid)||!root.child('metadata/'+$plateId).exists()"
+      }
+    },
+    "items": {
+      "$plateId": {
+        ".read": "root.child('metadata/'+$plateId+'/owner').val() === auth.uid",
+        ".write": "(root.child('metadata/'+$plateId+'/owner').val() === auth.uid)||!root.child('metadata/'+$plateId).exists()"
+      }
+    }
+  }
+}

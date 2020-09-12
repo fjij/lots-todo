@@ -1,0 +1,86 @@
+@import 'base'
+
+$width: 600px
+$scrollbar-width: 17px
+$height: 600px
+$list-height: 500px
+
+.plate
+  margin-left: $mid-dist
+  margin-right: $mid-dist
+  box-shadow: $shadow
+  padding: 30px 30px 30px 0px
+  height: $height
+  border-radius: $border-radius
+  max-width: $width
+  background: $back-color
+
+.plate-list-image
+  margin-left: auto
+  margin-right: auto
+  display: block
+  max-width: 380px
+
+.plate-list-text
+  margin-top: 20px
+  margin-left: 40px
+
+.plate-title-bar
+  display: flex
+  margin-left: 34px
+
+.plate-container
+  margin-left: auto
+  margin-right: auto
+  max-width: ($width + 2*$mid-dist)
+
+.plate-container-right
+  @extend .plate-container
+  margin-left: 0px
+
+.plate-container-left
+  @extend .plate-container
+  margin-right: 0px
+
+.plate-list
+  overflow: hidden
+  height: $list-height
+
+.plate-list-inner
+  overflow-x: hidden
+  overflow-y: scroll
+  height: 100%
+  width: 100%
+  padding-right: $scrollbar-width
+
+.plate-title
+  margin-top: 20px
+  margin-left: 10px
+  margin-bottom: 10px
+  font: 36px $font-stack
+  font-weight: 700;
+
+.plate-close-link
+  margin-top: 35px
+  margin-right: 10px
+  margin-left: 10px
+  color: $dark-color
+
+.plate-close-link:hover
+  color: $visible-color
+
+.plate-title-input
+  margin-top: 20px
+  margin-left: 10px
+  margin-bottom: 10px
+  font: 36px $font-stack
+  font-weight: 700;
+
+.plate-ref
+  margin-left: 4px
+  display: inline
+  font: 12px $font-stack
+  color: $visible-color
+
+.plate-ref-link
+  color: $dark-color

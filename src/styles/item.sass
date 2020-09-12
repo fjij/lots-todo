@@ -1,0 +1,63 @@
+@import 'base'
+
+.item-drag
+  opacity: 0.5
+
+.item-text
+  margin: 5px 10px 5px 10px
+  display: inline
+  flex: 1
+
+.item-form
+
+.item-input
+  font: 24px $font-stack
+  width: 100%
+  background: transparent
+
+.item-input-done
+  text-decoration: line-through
+
+.item
+  width: 100%
+  display: flex
+  background: transparent
+
+.item-sub
+  margin-left: 4px
+  width: 100%
+  display: flex
+  font: 12px $font-stack
+  color: $visible-color
+  height: 12px
+
+.item-button
+  width: 24px
+  color: $dark-color
+  outline: none
+  border: none
+  margin: 10px
+  transition: color .1s ease-in-out
+  background: transparent
+
+.item-button-slim
+  @extend .item-button
+  margin: 10px 10px 10px 0px
+
+.item-button:hover
+  color: $visible-color
+
+.item-button-new
+  font: 24px $font-stack
+  border: 2px dashed $subtle-color
+  color: $subtle-color
+  border-radius: 5px
+  background: transparent
+  margin: 10px 10px 10px 42px
+  padding: 10px
+
+.item-button-new:hover
+  color: $visible-color
+  border: 2px dashed $visible-color
+
+
