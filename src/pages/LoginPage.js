@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useInput } from '../components/input';
 import { Logo } from '../components';
 import { Redirect } from 'react-router-dom';
@@ -9,21 +9,31 @@ export function LoginPage (props) {
   const [email, emailInput] = useInput({
     type: "email",
     placeholder: "email",
-    formClassName: "login-form",
     inputClassName: "login-input",
-    onSubmit: goLogin
   });
   const [password, passwordInput] = useInput({
     type: "password",
     placeholder: "password",
-    formClassName: "login-form",
     inputClassName: "login-input",
-    onSubmit: goLogin
   });
+  const [errorMsg, setErrorMsg] = useState(null);
   const user = useUser();
 
   function goLogin() {
-    login(email, password);
+    function codeToMsg(code) {
+      switch(code) {
+        case 'auth/invalid-email':
+          return "Invalid email address."
+          break;
+        default:
+          return "The email or password was incorrect.";
+          break;
+      }
+    }
+    function onError(code) {
+      setErrorMsg(codeToMsg(code))
+    }
+    login(email, password, onError)
   }
 
   if (user) return <Redirect to="/"/>
@@ -32,10 +42,17 @@ export function LoginPage (props) {
     <div>
       <div className="login-container">
       <Logo />
-        {emailInput} <br />
-        {passwordInput} <br />
-        <button className="btn" onClick={() => login(email, password)}> Login </button>
-        <button className="btn" onClick={() => register(email, password)}> Register </button>
+        <form className="login-form" onSubmit={() => goLogin()}>
+          <div className="login-input-container">{emailInput}</div>
+          <div className="login-input-container">{passwordInput}</div>
+          <div className="login-footer">
+            <input type="submit" className="btn" value="Login" />
+            <button className="btn" onClick={() => register(email, password)}> Register </button>
+          </div>
+        </form>
+        <p className="login-error">
+        { errorMsg }
+        </p>
       </div>
     </div>
   );

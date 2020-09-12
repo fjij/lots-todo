@@ -11,9 +11,11 @@ export function useUser() {
   return user;
 }
 
-export function login (email, password) {
+export function login (email, password, onError) {
   const auth = firebase.auth();
-  auth.signInWithEmailAndPassword(email, password);
+  auth.signInWithEmailAndPassword(email, password).catch(e => {
+    onError(e.code)
+  });
 }
 
 export function register (email, password) {

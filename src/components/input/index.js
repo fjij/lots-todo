@@ -16,6 +16,7 @@ export function useInput({
   shouldFocus=false,
   multi=false,
   placeholder="",
+  form=true,
   }) {
 
   const [value, setValue] = useState(defaultValue);
@@ -59,12 +60,14 @@ export function useInput({
     ref,
     onKeyDown: e => { checkDelete(e); },
   }
-
-  const input = (
+ 
+  const input = form?(
     <form {...formArgs} >
       { multi? <textarea {...inputArgs} />:<input {...inputArgs} />}
     </form>
-  );
+  ):(<>
+    { multi? <textarea {...inputArgs} />:<input {...inputArgs} />}
+  </>);
   return [value, input];
 }
 
